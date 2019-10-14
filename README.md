@@ -13,6 +13,7 @@ python ../../Analysis_script/run_script.py
 ## Introduction
 These scripts were written mainly to calculate the truncated mean light yield of each scintillator tile. The light yield is measured using cosmic ray muons at Lab 6 and recorded by DRS4. The DRS4 records the data in a .dat file, which is converted into .root with a program in the Lab 6 computer. Since cosmic ray muon strikes the SiPM in the set up only ~600 times in 24 hours, we usually try to acquire about 600 muon events to get enough statistics. Unfortunately, the SiPM's performance depends on the temperature in the surrounding, and over the course of 24 hours, temperature fluctuates significantly. So, we usually do an LED calibration, and then perform a 4-hour run. The LED calibration helps us convert from ADC voltage to PE peak number. This conversion can be affected by temperature fluctuation, since it is related to the SiPM's performance. However, 4 hours should hopefully be short enough that the temperature does not fluctuate too widly within the time period. In any case, taking 6 4-hour runs and doing an LED calibration before each run is certainly better than taking one 24-hour run with only one LED calibration done at the beginning of the 24 hours. 
 
+### Optimizing Script Use
 To optimize the use of the scripts in this repository, you should do the following:
 1. Save the LED calibration files and the tile measurement files in the same folder. The folder should be named after the tile.
 2. The LED calibration files should be named as follows:
@@ -29,3 +30,8 @@ A_EJ200_10232019_c6_vsc5460_seal is an example. Information such as [number] and
 Note, these scripts were written to handle any number of runs. So if you want to increase the statistics, you can always perform more 4-hour runs. To minimize the temperature effect, you can also perform shorter runs such as 1-hour or 2-hour runs. Just make sure the run number for the LED calibration file is the same the run number of the tile measurement file. 
 
 See https://twiki.cern.ch/twiki/bin/view/Sandbox/URHGCALSOTCosmicRay for detail on the setup and how to measure a tile.
+
+### Brief Explanation of Each Script
+1. run_script.py - it works exactly like a bash script. It creates/deletes folders and files and runs other scripts in the correct sequence, minimizing manual work from user.
+2. peCalc_script.py - it calculates the ADC voltage to PE number conversion factor and all the important results such as truncated PE mean etc. It is used on the LED calibration files and the tile measurement files. All the conversion factors for different runs are saved in Output/ConversionFactors.
+3. calculate.py - after running over all the LED calibration and tile measurement files, run_script.py will combine all the analysed tile measurement files into a single file via the ROOT function "hadd", effectively adding up all the statistics from different runs. calculate.py then calculates all the important results from the combined file.
