@@ -7,7 +7,18 @@
 ```
 python ../../Analysis_script/run_script.py
 ```
-4. As the code is running, you will be asked if the Gaussian fits to the Count vs ADC voltage plot look good. If not, enter "n", and you will be given a chance to change the range for each Gaussian fit. After saving and closing the peCalc_script.py file, the code will continue running, and you will be asked the same question until you are satisfied with the fit.
+4. As the code is running, you will be asked if the Gaussian fits to the Count vs ADC voltage plot look good. If not, enter "n", and you will be given a chance to change the range for each Gaussian fit. When the peCalc_script.py is open, look for lines like
+```
+	startVal = -0.05
+	break1 = 0.1
+	break2 = 0.27
+	break3 = 0.45
+	break4 = 0.7
+	break5 = 0.9
+	endVal = 1.1
+ ```
+Change the values there.
+After saving and closing the peCalc_script.py file, the code will continue running, and you will be asked the same question until you are satisfied with the fit.
 5. Find the mean values in the Output/meanValues file.
 
 ## Introduction
