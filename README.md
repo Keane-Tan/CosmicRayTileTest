@@ -1,7 +1,7 @@
 # CosmicRayTileTest
 
 ## How to use
-1. Create a folder called radTiles and inside radTiles,create another folder with the name of the tile being measured, and save all the root files of the measurements of that tile in the newly created folder.
+1. Create a folder called radTiles in the same directory as the Analysis_script folder and inside radTiles,create another folder with the name of the tile being measured, and save all the root files of the measurements of that tile in the newly created folder.
 2. cd into the newly created folder (radTiles/[tile name]).
 3. Make sure gedit is closed and run
 ```
