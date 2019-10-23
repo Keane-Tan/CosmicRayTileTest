@@ -19,7 +19,10 @@ python ../../Analysis_script/run_script.py
  ```
 Change the values there.
 After saving and closing the peCalc_script.py file, the code will continue running, and you will be asked the same question until you are satisfied with the fit.
-5. Find the mean values in the Output/meanValues file. In the file, you will see rows and columns of values that are ready to be copied and pasted into a spreadsheet. The columns mean:
+
+5. Find the mean values in the Output/meanValues file. In the file, you will see rows and columns of values that are ready to be copied and pasted into a spreadsheet. 
+
+The columns mean:
 meanPE	meanErr	sigma	sigmaErr	meanPETrunc	meanErrTrunc	sigmaTrunc	sigmaErrTrunc	pulseStart	pulseEnd usedEvents	totalEvents
 
 
